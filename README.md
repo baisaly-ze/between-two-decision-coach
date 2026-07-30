@@ -1,90 +1,46 @@
-# Between Two — AI Decision Coach
+# Between Two
 
-A full-stack AI decision assistant that asks five personalised questions, separates logic from emotion, and returns one clear recommendation with decision clarity, reasoning, trade-offs, and overlooked considerations.
+An AI-powered decision coach that helps you choose between two options through five guided questions — separating what's practical from what's emotional, then giving you one clear recommendation.
 
-## Stack
+**Live demo:** [between-two.vercel.app](https://between-two.vercel.app)
 
-- React + Vite
-- Plain responsive CSS
-- Framer Motion
-- Node.js + Express
-- Groq API
-- Zod validation
-- Helmet, CORS, and API rate limiting
+---
 
-## Features
+## What it does
 
-- Two-option decision flow
-- AI-generated follow-up questions
-- Logic and heart scores
-- One final recommendation
-- Decision clarity percentage
-- Honest trade-off and considerations
-- High-stakes decision safety classification
-- Demo fallback when no Groq key is configured
-- Responsive, animated interface
+Stuck between two choices? Answer five short questions and Between Two breaks down:
 
-## Local setup
+- **Logic score** — how each option holds up practically
+- **Heart score** — how each option feels emotionally
+- **A clear recommendation** — with reasoning, an honest trade-off, and what to keep in mind
 
-### 1. Install dependencies
+Built to feel like a conversation with a thoughtful friend, not a form.
+
+## Tech stack
+
+**Frontend:** React, Vite, Framer Motion
+**Backend:** Node.js, Express, Zod
+**AI:** Groq (Llama 3.3 70B)
+**Deployment:** Vercel (frontend), Render (backend)
+
+## Running it locally
 
 ```bash
-npm run install:all
-```
+# Backend
+cd server
+npm install
+cp .env.example .env   # add your Groq API key
+npm run dev
 
-### 2. Configure the backend
-
-Copy `server/.env.example` to `server/.env` and add your Groq key:
-
-```env
-PORT=5000
-CLIENT_URL=http://localhost:5173
-GROQ_API_KEY=your_key_here
-GROQ_MODEL=llama-3.3-70b-versatile
-```
-
-### 3. Configure the frontend
-
-Copy `client/.env.example` to `client/.env`:
-
-```env
-VITE_API_URL=http://localhost:5000/api
-```
-
-### 4. Run both terminals
-
-```bash
-npm run dev:server
-```
-
-```bash
-npm run dev:client
+# Frontend
+cd client
+npm install
+cp .env.example .env
+npm run dev
 ```
 
 Open `http://localhost:5173`.
 
-## Deployment
+---
 
-### Vercel frontend
-
-- Root directory: `client`
-- Build command: `npm run build`
-- Output directory: `dist`
-- Environment variable: `VITE_API_URL=https://YOUR-RENDER-URL/api`
-
-### Render backend
-
-- Root directory: `server`
-- Build command: `npm install`
-- Start command: `npm start`
-- Add `GROQ_API_KEY`, `GROQ_MODEL`, and `CLIENT_URL` environment variables.
-
-## API endpoints
-
-- `GET /api/health`
-- `POST /api/questions`
-- `POST /api/decide`
-
-## Next version
-
-MongoDB decision history, Firebase authentication, feedback/outcome tracking, and saved decision sharing can be added after the MVP is deployed.
+Built as a personal project to explore combining structured decision-making with conversational AI.
