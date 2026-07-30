@@ -2,8 +2,6 @@
 
 An AI-powered decision coach that helps you choose between two options through five guided questions — separating what's practical from what's emotional, then giving you one clear recommendation.
 
-**Live demo:** [between-two.vercel.app](https://between-two.vercel.app)
-
 ---
 
 ## What it does
